@@ -4,11 +4,11 @@ Leia README.md, docs/ESCOPO.md e docs/TAREFAS.md antes de trabalhar.
 
 ## Papel
 
-Implementar uma tarefa por vez, preservando decisões e requisitos registrados. Bruno é o responsável pelas decisões de negócio. As tarefas são propostas para implementação; ainda não há tecnologia escolhida.
+Implementar uma tarefa por vez, preservando decisões e requisitos registrados. Bruno é o responsável pelas decisões de negócio. A proposta é validar ERPNext em um piloto local antes de confirmar a base.
 
 ## Primeiro passo
 
-Comece por T001. Se as informações de hospedagem estiverem ausentes, peça provedor/plano e recursos disponíveis. Não escolha stack nem gere aplicação completa por suposição. Pode preparar a comparação e registrar lacunas sem bloquear trabalho independente.
+Comece por T001. Locaweb é a hospedagem atual, mas Bruno autorizou desenvolvimento local até a VPS definitiva. Não aguarde dados da Locaweb para avançar. Confirme o ambiente local, valide os requisitos oficiais do ERPNext e prepare uma instalação reproduzível para desenvolvimento com extensões próprias. Não publicar a aplicação nem abrir túneis públicos nesta fase. Se não tiver acesso ao computador de Bruno, entregue o roteiro local e declare onde os testes realmente foram executados.
 
 ## Entregas
 
