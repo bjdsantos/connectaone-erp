@@ -49,7 +49,8 @@ if (Cmd 'wsl') {
         $linhaWsl = ($wv -split "`r?`n" | Where-Object { $_ -match '\d+\.\d+\.\d+' } | Select-Object -First 1)
         Avalia 'WSL' ([bool]$linhaWsl) ($(if ($linhaWsl) { $linhaWsl.Trim() } else { 'versao nao identificada (minimo 2.1.5)' }))
     } else { Avalia 'WSL' $false 'comando existe, mas o WSL 2 nao parece instalado/atualizado (minimo 2.1.5)' }
-    $dist = (wsl.exe -l -v 2>$null | Out-String) -replace "`0", ''
+    # So lista distribuicoes se o WSL estiver instalado; sem ele, "wsl -l" abre um prompt de instalacao.
+    $dist = if ($linhaWsl) { (wsl.exe -l -v 2>$null | Out-String) -replace "`0", '' } else { '' }
     if ($dist.Trim()) { Add "[INFO    ] Distribuicoes WSL:"; ($dist -split "`r?`n" | Where-Object { $_.Trim() }) | ForEach-Object { Add ("           {0}" -f $_) } }
 } else { Avalia 'WSL' $false 'nao encontrado' }
 

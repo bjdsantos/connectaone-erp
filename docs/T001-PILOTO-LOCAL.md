@@ -5,7 +5,7 @@ Data do levantamento: 12/11/2026.
 ## Resumo
 
 - **Base proposta: ERPNext v16 (Frappe Framework v16)**, em ambiente de desenvolvimento com Docker usando o repositório oficial `frappe/frappe_docker` (modo *devcontainer*).
-- **Decisão técnica: aprovada com condição.** Os requisitos oficiais são compatíveis com um computador Windows 10/11 64 bits com WSL 2, Docker Desktop e 16 GB de RAM. Falta confirmar os números reais do computador do Bruno (seção 4). Nenhum impedimento concreto foi encontrado até aqui, então a comparação com Dolibarr não foi acionada.
+- **Decisão técnica: ERPNext v16 confirmado para o piloto.** O computador do Bruno atende com folga (Windows 11 Pro build 26200, 32 GB de RAM, Ryzen 7 5700X, 558 GB livres no C:). Único ajuste obrigatório: **ligar a virtualização (SVM) na BIOS**, hoje desligada. Não é impedimento, então a comparação com Dolibarr não foi acionada.
 - **Extensões próprias: suportadas nativamente.** O Frappe trabalha com *apps* separados (`bench new-app`), que adicionam DocTypes, campos, scripts, permissões e relatórios sem alterar o núcleo do ERPNext.
 - **Nada foi instalado no computador do Bruno nesta tarefa.** Veja a seção 7 sobre onde cada verificação foi feita.
 
@@ -68,11 +68,27 @@ Windows
 
 | Item | Resultado | Como foi verificado |
 |---|---|---|
-| Sistema operacional | Windows, 64 bits (x64) | Leitura remota pelo app Claude Desktop |
-| Docker | Provavelmente **não instalado** (não existe a pasta `.docker` no perfil do usuário) | Lista de pastas do perfil. Indício, não confirmação |
-| Versão e build do Windows | **Pendente** | Rodar `scripts/windows/verificar-ambiente.ps1` |
-| RAM, disco livre, virtualização | **Pendente** | idem |
-| WSL 2, Git, VS Code | **Pendente** | idem |
+| Windows | Windows 11 Pro, versão 10.0.26200, build 26200, 64 bits | OK (mínimo: build 22631) |
+| Memória RAM | 31,9 GB | OK (recomendado: 16 GB) |
+| Processador | AMD Ryzen 7 5700X, 8 núcleos / 16 threads | OK |
+| Virtualização | **Desligada** (firmware: False, hypervisor: False) | **Ajuste obrigatório na BIOS** |
+| Disco C: | 558,3 GB livres de 930,5 GB | OK. Instalar Docker e WSL no C: |
+| Disco D: | 5 GB livres | Não usar para o piloto |
+| WSL | Não instalado | Instalar no passo 1 |
+| Docker | Não instalado | Instalar no passo 1 |
+| Git, VS Code | Não instalados | Instalar no passo 1 |
+| Portas 8000, 9000, 6787 | Livres | OK |
+
+Resultado do script `verificar-ambiente.ps1` executado por Bruno no computador dele em 12/11/2026 13:09.
+
+### Ajuste obrigatório: ligar a virtualização (SVM)
+
+O Ryzen 7 5700X suporta virtualização (AMD-V), mas ela está desligada na BIOS. Sem isso, WSL 2 e Docker não funcionam.
+
+1. Reiniciar o computador e apertar `Del` (ou `F2`) repetidamente durante a inicialização para entrar na BIOS/UEFI.
+2. Procurar **SVM Mode** (às vezes em *Advanced > CPU Configuration*, *OC* ou *Tweaker*, conforme o fabricante da placa-mãe) e mudar para **Enabled**.
+3. Salvar e sair (geralmente `F10`).
+4. Rodar o script de novo: a linha *Virtualizacao* deve continuar indicando firmware `True`. Depois que o WSL for instalado, ela passa a mostrar *hypervisor ativo: True*.
 
 ### Como verificar (somente leitura, não instala nada)
 
@@ -184,13 +200,13 @@ O código de `apps/connectaone` deve ser versionado neste repositório (ou em re
 |---|---|
 | Leitura do repositório, consulta de versões e requisitos (`git clone`, `git ls-remote`, leitura de `pyproject.toml`, `package.json`, Dockerfile e documentação do frappe_docker) | Ambiente remoto do Claude (nuvem, Linux) |
 | Sistema operacional, arquitetura e pastas do perfil do usuário | Computador do Bruno, via app Claude Desktop (somente leitura) |
-| Script `verificar-ambiente.ps1` | **Não executado ainda.** Escrito em ASCII; sintaxe não testada porque o ambiente remoto não tem PowerShell |
+| Script `verificar-ambiente.ps1` | Computador do Bruno, executado por ele em 12/11/2026 (via `verificar-ambiente.bat`). Somente leitura |
 | Instalação de WSL, Docker, ERPNext | **Não executada** (aguarda autorização e T002) |
 
 ## 8. Próxima ação
 
-1. Bruno roda o script da seção 4 e anexa o resultado ao PR.
-2. Com tudo `OK`, Bruno autoriza a instalação dos pré-requisitos (passo 1).
+1. Bruno liga o SVM na BIOS e roda o script de novo.
+2. Bruno autoriza a instalação dos pré-requisitos (passo 1 da seção 5: WSL 2, Docker Desktop, Git, VS Code).
 3. Seguir para o T002 com este roteiro como base.
 
 ## Fontes
