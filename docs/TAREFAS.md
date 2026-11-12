@@ -2,7 +2,7 @@
 
 ## T001 — Validar piloto local
 
-Status: pronto para levantamento do ambiente local; não depende da Locaweb.
+Status: em revisão. Requisitos oficiais levantados e roteiro entregue em [T001-PILOTO-LOCAL.md](T001-PILOTO-LOCAL.md). Pendente: resultado do script de verificação no computador de Bruno.
 
 Bruno autorizou desenvolvimento local e adiou o deploy até a VPS definitiva. Locaweb é a hospedagem atual, sem obrigação de instalar nela.
 
