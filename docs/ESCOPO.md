@@ -7,7 +7,10 @@
 - Preferência por base open source e execução assistida por IA usando os planos existentes.
 - Começar com controles; emissão fiscal fica para depois.
 - GitHub como local compartilhado para especificações e código.
-- Hospedagem ainda não informada. FTP é um meio de transferência, não define o ambiente da aplicação.
+- Hospedagem atual: Locaweb; plano ainda não informado.
+- Desenvolvimento local autorizado até disponibilização da VPS definitiva.
+- Não publicar a aplicação nesta fase. Atualizações da documentação e código no GitHub continuam fazendo parte do fluxo.
+- Proposta técnica: piloto local de ERPNext; viabilidade ainda deve ser verificada.
 
 ## Proposta de entregas
 
@@ -52,4 +55,4 @@ Emissão de notas fiscais, integrações bancárias, envio automático de cobran
 
 ## Decisões ainda necessárias
 
-Hospedagem, usuários e permissões, convenção de designações, vencimentos, competência de cobrança, pró-rata, suspensão, cancelamento e método de apropriação dos custos compartilhados.
+Configuração da futura VPS, ambiente local, usuários e permissões, convenção de designações, vencimentos, competência de cobrança, pró-rata, suspensão, cancelamento e método de apropriação dos custos compartilhados.
