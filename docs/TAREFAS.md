@@ -2,7 +2,7 @@
 
 ## T001 — Validar piloto local
 
-Status: pronto para levantamento do ambiente local; não depende da Locaweb.
+Status: em revisão. Requisitos oficiais levantados e roteiro entregue em [T001-PILOTO-LOCAL.md](T001-PILOTO-LOCAL.md). Computador verificado em 12/11/2026: ERPNext v16 confirmado. Pendente: ligar a virtualização (SVM) na BIOS e autorizar a instalação dos pré-requisitos.
 
 Bruno autorizou desenvolvimento local e adiou o deploy até a VPS definitiva. Locaweb é a hospedagem atual, sem obrigação de instalar nela.
 
