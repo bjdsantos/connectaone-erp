@@ -4,7 +4,7 @@ Planejamento e desenvolvimento do ERP online da ConnectaOne (C1).
 
 ## Status
 
-Projeto em definição. Ainda não existe aplicação instalada ou publicada. Base open source e hospedagem pendentes de validação. Este repositório coordena o trabalho; não conecta automaticamente conversas ou executa agentes.
+Projeto em definição. Ainda não existe aplicação instalada ou publicada. Desenvolvimento local autorizado; sem publicação nesta fase. ERPNext é a proposta para o piloto, ainda sujeita à validação técnica local. Este repositório coordena o trabalho; não conecta automaticamente conversas ou executa agentes.
 
 ## Objetivo
 
@@ -24,8 +24,10 @@ Cada implementação deve ocorrer em uma branch própria e ser entregue em pull 
 
 ## Decisões pendentes
 
-- Provedor e plano de hospedagem; recursos disponíveis, banco de dados e acesso SSH.
-- Base open source: avaliar ERPNext ou Dolibarr conforme infraestrutura e requisitos. Não iniciar um ERP do zero por padrão.
+- Hospedagem atual: Locaweb, plano não informado. Não é bloqueio para o piloto local.
+- Destino futuro: VPS ainda não definida; nenhum deploy autorizado nesta fase.
+- Validar ERPNext localmente, preferencialmente em ambiente reproduzível com Docker. Não iniciar um ERP do zero por padrão.
+- Confirmar sistema operacional e recursos do computador de desenvolvimento.
 - Ambiente de execução do Claude e suas permissões no repositório.
 - Perfis de acesso e regras financeiras detalhadas.
 
