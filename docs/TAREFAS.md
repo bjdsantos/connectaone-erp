@@ -1,20 +1,20 @@
 # Tarefas
 
-## T001 — Confirmar infraestrutura e escolher base
+## T001 — Validar piloto local
 
-Status: aguardando informação de hospedagem.
+Status: pronto para levantamento do ambiente local; não depende da Locaweb.
 
-Levantar provedor/plano, PHP/Python disponíveis, MySQL/MariaDB, SSH, processos persistentes, tarefas agendadas, HTTPS e backups. Não pedir credenciais no chat ou registrá-las no GitHub.
+Bruno autorizou desenvolvimento local e adiou o deploy até a VPS definitiva. Locaweb é a hospedagem atual, sem obrigação de instalar nela.
 
-Comparar ERPNext e Dolibarr contra os requisitos de ESCOPO.md e as capacidades confirmadas da hospedagem. Consultar documentação oficial da versão escolhida. Registrar recursos nativos, extensões necessárias, licenças aplicáveis, custos operacionais e procedimento de atualização. Não supor compatibilidade com hospedagem apenas por haver FTP.
+Proposta: ERPNext como primeiro candidato. Confirmar sistema operacional, RAM, espaço livre e disponibilidade de Docker no computador de desenvolvimento. Consultar a documentação oficial de instalação e desenvolvimento da versão selecionada antes de gerar comandos. Validar se o ambiente suporta extensões próprias, não apenas uma demonstração descartável. Registrar versão fixa, requisitos e limitações. Se houver impedimento concreto, documentar e comparar Dolibarr antes de mudar a base.
 
-Aceite: decisão técnica documentada com evidências, limitações e passos reproduzíveis de instalação. Implementação depende desta decisão.
+Aceite: decisão técnica registrada com evidências e roteiro local reproduzível. Não afirmar que uma instalação em ambiente remoto de IA foi feita no computador de Bruno.
 
 ## T002 — Preparar ambiente de testes
 
 Status: pendente de T001.
 
-Instalar a versão estável selecionada, documentar execução, configurar variáveis por exemplo sem segredos e criar dados fictícios. Personalizações em extensão própria sempre que a base permitir. Preservar avisos e licenças do projeto original.
+Instalar localmente a versão estável selecionada, documentar execução, configurar variáveis por exemplo sem segredos e criar dados fictícios. Preferir ambiente reproduzível com volumes persistentes e instruções para iniciar, parar e restaurar. Acesso apenas local no piloto; não publicar na Locaweb, VPS ou por túnel público. Preparar o projeto para futura migração, sem executá-la. Personalizações em extensão própria sempre que a base permitir. Preservar avisos e licenças do projeto original.
 
 Aceite: instalação reproduzível, login funcional, persistência verificada, acesso sem login bloqueado e instruções de backup/restauração.
 
